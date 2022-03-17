@@ -6,18 +6,19 @@ function CatFinder() {
 
     const [cat, setCat] = useState(null)
 
-    const fetchCat = async (id) => {
-        const response = await axios("http://localhost:8080/cats/" + id)
-        const cat = await response.data;
-        setCat(cat)
+    const fetchCat = async (e) => {
+        if(e.code === "Enter") {
+            const response = await axios("http://localhost:8080/cats/" + e.target.value)
+            const cat = await response.data;
+            setCat(cat)
+        }
     }
 
     return (
         <>
             <TextField
-                defaultValue={1}
                 label="Cat Id"
-                onKeyUp={e => fetchCat(e.target.value)}
+                onKeyUp={e => fetchCat(e)}
             />
             <Box>
                 {
