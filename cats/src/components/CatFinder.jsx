@@ -6,9 +6,10 @@ function CatFinder() {
 
     const [cat, setCat] = useState(null)
 
+    const ENDPOINT = process.env.REACT_APP_BACKEND_ENDPOINT
     const fetchCat = async (e) => {
         if(e.code === "Enter") {
-            const response = await axios("http://localhost:8080/cats/" + e.target.value)
+            const response = await axios(ENDPOINT + e.target.value)
             const cat = await response.data;
             setCat(cat)
         }

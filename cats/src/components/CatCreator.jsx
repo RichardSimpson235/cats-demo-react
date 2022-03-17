@@ -8,8 +8,9 @@ function CatCreator() {
     const [breed, setBreed] = useState("")
     const [cat, setCat] = useState(null)
 
+    const ENDPOINT = process.env.REACT_APP_BACKEND_ENDPOINT
     const createCat = async () => {
-        const response = await axios.post("http://localhost:8080/cats/", {
+        const response = await axios.post(ENDPOINT, {
             name: name,
             breed: breed
         })
