@@ -6,12 +6,16 @@ import {
     Routes,
     Route
 } from "react-router-dom"
-import App from './components/App';
+import Content from './components/Content';
+import CatFinder from './components/CatFinder'
+import CatCreator from './components/CatCreator'
 
 ReactDOM.render(
     <BrowserRouter>
         <Routes>
-            <Route path="/" element={<App />}>
+            <Route path="/" element={<Content />}>
+                <Route path="/create" element={<CatCreator />} />
+                <Route path="/" element={<CatFinder />} />
             </Route>
         </Routes>
     </BrowserRouter>,
